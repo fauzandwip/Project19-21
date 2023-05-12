@@ -16,19 +16,35 @@ class DetailViewController: UIViewController {
     var notes: [Note]?
     var note: Note?
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        guard notes != nil else { return }
+        if let note {
+            notes?.insert(note, at: 0)
+        }
+        
+        saveData()
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        noteTitleField.delegate = self
+        noteTextView.delegate = self
+        
+        setupUI()
+    }
+    
+    func setupUI() {
+        
         if let note {
             noteTitleField.text = note.noteTitle
             noteTextView.text = note.noteText
         }
         
-        noteTitleField.delegate = self
-        noteTextView.delegate = self
-        
-        noteTitleField.text = note?.noteTitle
-        noteTextView.text = note?.noteText
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareNote))
         
         let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let deleteNoteButton = UIBarButtonItem(
@@ -44,19 +60,12 @@ class DetailViewController: UIViewController {
         
         toolbarItems = [spacer, saveNoteButton, deleteNoteButton, spacer]
     }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        guard notes != nil else { return }
-        
+    
+    @objc func shareNote() {
         if let note {
-            notes?.insert(note, at: 0)
+            let activityVC = UIActivityViewController(activityItems: [note.noteTitle, note.noteText], applicationActivities: nil)
+            present(activityVC, animated: true)
         }
-        
-        saveData()
-        
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
     }
     
     @objc func saveNote() {
