@@ -15,19 +15,19 @@ class ViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.prefersLargeTitles = true
-        tabBarController?.tabBar.isHidden = true
-
+        navigationController?.isToolbarHidden = true
+    
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        tabBarController?.tabBar.isHidden = false
+        navigationController?.isToolbarHidden = false
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "My Notes"
+        navigationItem.title = "My Notes"
         navigationController?.navigationBar.prefersLargeTitles = true
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNote))
@@ -35,7 +35,7 @@ class ViewController: UITableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
         
         loadData()
-    
+        
     }
     
     @objc func addNote() {
@@ -44,24 +44,31 @@ class ViewController: UITableViewController {
             vc.note = Note(noteTitle: "Title", noteText: "Write note text here", lastEdit: Date.now)
             navigationController?.pushViewController(vc, animated: true)
         }
-        
-        dismiss(animated: true)
     }
     
     func loadData() {
         if let savedData = defaults.object(forKey: "notes") as? Data {
             let jsonDecoder = JSONDecoder()
-            print("ok2")
+            
             do {
                 self.notes = try jsonDecoder.decode([Note].self, from: savedData)
-                if notes.count >= 1 {
-                    print(notes[0].noteTitle)
-                }
             } catch {
                 print("Failed to load data, \(error)")
             }
             
         }
+    }
+    
+    func saveData() {
+        let jsonEncoder = JSONEncoder()
+        
+        do {
+            let savedData = try jsonEncoder.encode(notes)
+            defaults.set(savedData, forKey: "notes")
+        } catch {
+            print("Failed to save data, \(error)")
+        }
+        
     }
     
     @objc func loadList() {
@@ -96,8 +103,10 @@ extension ViewController {
         let note = notes[indexPath.row]
         
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
-            vc.noteTitle = note.noteTitle
-            vc.noteText = note.noteText
+            notes.remove(at: indexPath.row)
+
+            vc.notes = notes
+            vc.note = note
             navigationController?.pushViewController(vc, animated: true)
         }
         

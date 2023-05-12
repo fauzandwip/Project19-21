@@ -14,41 +14,120 @@
             filePath = "Project19-21/DetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "viewWillDisappear(_:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8AD9658D-CBFC-41C6-B5E8-4289156C48A6 - c2d4d82abc686eab"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Project19_21.DetailViewController.viewWillDisappear(Swift.Bool) -&gt; ()"
+                  moduleName = "Project19-21"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fauzandp/Documents/Programming/Mobile/IOS/100Day_ofSwift/Project19-21/Project19-21/DetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "480">
+               </Location>
+               <Location
+                  uuid = "8AD9658D-CBFC-41C6-B5E8-4289156C48A6 - c2d4d82abc686f65"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Project19_21.DetailViewController.viewWillDisappear(Swift.Bool) -&gt; ()"
+                  moduleName = "Project19-21"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fauzandp/Documents/Programming/Mobile/IOS/100Day_ofSwift/Project19-21/Project19-21/DetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "668">
+               </Location>
+               <Location
+                  uuid = "8AD9658D-CBFC-41C6-B5E8-4289156C48A6 - c2d4d82abc6850bb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Project19_21.DetailViewController.viewWillDisappear(Swift.Bool) -&gt; ()"
+                  moduleName = "Project19-21"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fauzandp/Documents/Programming/Mobile/IOS/100Day_ofSwift/Project19-21/Project19-21/DetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "692">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C2515204-7479-4D3B-BBD2-E4E4092CAB26"
+            uuid = "8302B537-8B4C-46C8-863A-5891A937E942"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Project19-21/DetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "textFieldDidEndEditing(_:)"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "viewWillDisappear(_:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8302B537-8B4C-46C8-863A-5891A937E942 - c2d4d82abc686fc0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Project19_21.DetailViewController.viewWillDisappear(Swift.Bool) -&gt; ()"
+                  moduleName = "Project19-21"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fauzandp/Documents/Programming/Mobile/IOS/100Day_ofSwift/Project19-21/Project19-21/DetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "504">
+               </Location>
+               <Location
+                  uuid = "8302B537-8B4C-46C8-863A-5891A937E942 - c2d4d82abc686f27"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Project19_21.DetailViewController.viewWillDisappear(Swift.Bool) -&gt; ()"
+                  moduleName = "Project19-21"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fauzandp/Documents/Programming/Mobile/IOS/100Day_ofSwift/Project19-21/Project19-21/DetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "628">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8C5D6B0B-5133-4508-9739-53F9B3F8F083"
+            uuid = "012B2630-F1F3-41F2-B81C-D0B2FBB7E74D"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Project19-21/DetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "textViewDidEndEditing(_:)"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "textFieldDidChangeSelection(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
