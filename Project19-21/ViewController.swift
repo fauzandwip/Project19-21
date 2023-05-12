@@ -9,29 +9,70 @@ import UIKit
 
 class ViewController: UITableViewController {
 
-    var notes = ["Note", "Note", "Note"]
+    var notes = [Note]()
+    var defaults = UserDefaults.standard
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
+        tabBarController?.tabBar.isHidden = true
+
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        tabBarController?.tabBar.isHidden = false
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "My Notes"
         navigationController?.navigationBar.prefersLargeTitles = true
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNote))
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
+        
+        loadData()
     
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = true
-        tabBarController?.tabBar.isHidden = true
+    @objc func addNote() {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
+            vc.notes = notes
+            vc.note = Note(noteTitle: "Title", noteText: "Write note text here", lastEdit: Date.now)
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        dismiss(animated: true)
     }
     
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        tabBarController?.tabBar.isHidden = false
+    func loadData() {
+        if let savedData = defaults.object(forKey: "notes") as? Data {
+            let jsonDecoder = JSONDecoder()
+            print("ok2")
+            do {
+                self.notes = try jsonDecoder.decode([Note].self, from: savedData)
+                if notes.count >= 1 {
+                    print(notes[0].noteTitle)
+                }
+            } catch {
+                print("Failed to load data, \(error)")
+            }
+            
+        }
     }
-
+    
+    @objc func loadList() {
+        loadData()
+        self.tableView.reloadData()
+    }
+    
 }
+
+
+// MARK: - UITableViewController Method
 
 extension ViewController {
     
@@ -43,15 +84,23 @@ extension ViewController {
         let note = notes[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "NoteCell", for: indexPath)
-        cell.textLabel?.text = note
+        cell.textLabel?.text = note.noteTitle
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        cell.detailTextLabel?.text = note.noteText
+        cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 15)
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let note = notes[indexPath.row]
         
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
+            vc.noteTitle = note.noteTitle
+            vc.noteText = note.noteText
             navigationController?.pushViewController(vc, animated: true)
         }
+        
     }
+
 }
