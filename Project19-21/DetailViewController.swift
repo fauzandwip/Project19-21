@@ -26,6 +26,7 @@ class DetailViewController: UIViewController {
         
         saveData()
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+        
     }
     
     override func viewDidLoad() {
@@ -38,6 +39,9 @@ class DetailViewController: UIViewController {
     }
     
     func setupUI() {
+        
+//        noteTitleField.layer.borderColor = UIColor(red: 255, green: 234, blue: 146, alpha: 1).cgColor
+//        noteTitleField.layer.borderWidth = 5
         
         if let note {
             noteTitleField.text = note.noteTitle

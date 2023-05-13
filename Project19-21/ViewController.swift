@@ -96,6 +96,10 @@ extension ViewController {
         cell.detailTextLabel?.text = note.noteText
         cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 15)
         
+        cell.layer.cornerRadius = 20
+//        cell.layer.borderWidth = 1
+//        cell.layer.borderColor = UIColor.gray.cgColor
+        
         return cell
     }
     
