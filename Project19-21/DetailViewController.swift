@@ -40,9 +40,6 @@ class DetailViewController: UIViewController {
     
     func setupUI() {
         
-//        noteTitleField.layer.borderColor = UIColor(red: 255, green: 234, blue: 146, alpha: 1).cgColor
-//        noteTitleField.layer.borderWidth = 5
-        
         if let note {
             noteTitleField.text = note.noteTitle
             noteTextView.text = note.noteText
@@ -63,6 +60,7 @@ class DetailViewController: UIViewController {
         )
         
         toolbarItems = [spacer, saveNoteButton, deleteNoteButton, spacer]
+        navigationController?.toolbar.tintColor = .black
     }
     
     @objc func shareNote() {
